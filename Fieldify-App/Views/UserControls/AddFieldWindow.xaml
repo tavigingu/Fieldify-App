@@ -1,0 +1,105 @@
+﻿<Window x:Class="Fieldify_App.Views.UserControls.AddFieldWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Fieldify_App.Views.UserControls"
+        xmlns:vm="clr-namespace:Fieldify_App.ViewModels" xmlns:views="clr-namespace:Fieldify_App.Views.UserControls"
+        mc:Ignorable="d"
+        Title="Notificare" Height="500" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        BorderThickness="2"
+        >
+
+    <Window.DataContext>
+        <vm:AddFieldWindowVM/>
+    </Window.DataContext>
+
+    <Border Background="{DynamicResource SecDynamicBrush}" CornerRadius="20" Padding="10"
+            BorderThickness="3" BorderBrush="Gray">
+        <Grid>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                <TextBlock Text="Adaugă un nou teren" 
+                           FontSize="18" FontWeight="Bold" Foreground="#47C363" 
+                           TextAlignment="Center" Margin="0,10,0,10"/>
+                
+                <TextBox Margin="0,25,0,0" x:Name="fieldNameBox" Width="300" Height="50" FontSize="18"
+                 BorderThickness="2" Padding="10,11,10,3"
+                 Text="{Binding FieldName, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="Numele terenului"
+                 materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                 BorderBrush="{DynamicResource MaterialDesignDivider}"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <TextBox Margin="0,25,0,0" x:Name="descriptionBox" Width="300" Height="50" FontSize="18"
+                 BorderThickness="2" Padding="10,11,10,3"
+                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="Descrierea terenului"
+                 materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                 BorderBrush="{DynamicResource MaterialDesignDivider}"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <TextBox Margin="0,25,0,0" x:Name="priceBox" Width="300" Height="50" FontSize="18"
+                 BorderThickness="2" Padding="10,11,10,3"
+                 Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="Pret/2 ore"
+                 materialDesign:ShadowAssist.ShadowDepth="Depth3"
+                 BorderBrush="{DynamicResource MaterialDesignDivider}"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 PreviewTextInput="priceBox_PreviewTextInput"/>
+
+                <StackPanel Orientation="Vertical" Margin="0,25,0,0">
+                    <TextBlock Text="Tipul terenului:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <RadioButton Content="Fotbal" GroupName="FieldType" FontSize="14"
+                                 IsChecked="{Binding IsFootballSelected, Mode=TwoWay}"/>
+                    <RadioButton Content="Baschet" GroupName="FieldType" FontSize="14"
+                                 IsChecked="{Binding IsBasketballSelected, Mode=TwoWay}"/>
+                    <RadioButton Content="Tenis" GroupName="FieldType" FontSize="14"
+                                 IsChecked="{Binding IsTennisSelected, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+
+
+                    <Button 
+                                Command="{Binding ClosePageCommand}"
+                                Width="30" 
+                                Height="30"
+                                Margin="20"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                                Background="Transparent"
+                                BorderBrush="Red"
+                                BorderThickness="2"
+                                ToolTip="Anulare">
+                        <Button.Content>
+                            <TextBlock Text="X" 
+                                           FontSize="16" 
+                                           FontWeight="Bold" 
+                                           Foreground="Red" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" />
+                        </Button.Content>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="White" />
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button Content="Adaugă" Width="90" Margin="0,20,0,20" 
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        Command="{Binding AddFieldCommand}"/>
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+
+</Window>

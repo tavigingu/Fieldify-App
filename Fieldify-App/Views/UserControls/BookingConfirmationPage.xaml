@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Fieldify_App.Views.UserControls.BookingConfirmationPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Fieldify_App.Views.UserControls"
+             xmlns:vm="clr-namespace:Fieldify_App.ViewModels" xmlns:views="clr-namespace:Fieldify_App.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+
+    <UserControl.DataContext>
+        <vm:BookingConfirmationPageVM/>
+    </UserControl.DataContext>
+    
+    
+    <Border Background="{DynamicResource DynamicBrush}" CornerRadius="20" Padding="10">
+        <Grid>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                <!-- Iconiță bifă verde -->
+                <Border Width="100" Height="100" Background="LightGreen" CornerRadius="50" Margin="0,0,0,20">
+                    <TextBlock Text="✔" FontSize="50" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+
+                <!-- Mesaj de confirmare -->
+                <TextBlock Text="Programare efectuată cu succes!" FontSize="20" FontWeight="Bold" Foreground="Green" Margin="0,0,0,20"/>
+
+                <!-- Detalii programare -->
+                <StackPanel>
+                    <TextBlock Text="Teren:" FontSize="16" FontWeight="Bold" Margin="0,5"/>
+                    <TextBlock Text="{Binding FieldName}" FontSize="16" Margin="0,5"/>
+
+                    <TextBlock Text="Data:" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
+                    <TextBlock Text="{Binding BookingDate}" FontSize="16" Margin="0,5"/>
+
+                    <TextBlock Text="Ora:" FontSize="16" FontWeight="Bold" Margin="0,15,0,5"/>
+                    <TextBlock Text="{Binding BookingHour}" FontSize="16" Margin="0,5"/>
+                </StackPanel>
+
+                <!-- Buton pentru revenire la pagina principală -->
+                <Button Content="Înapoi la pagina principală" Width="200" Command="{Binding BackToMainPageCommand}" Margin="20,30,20,0"/>
+            </StackPanel>
+        </Grid>
+
+    </Border>
+
+</UserControl>

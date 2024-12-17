@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Fieldify_App.Views.UserControls.HomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Fieldify_App.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+    <Grid>
+        <Border Background="{DynamicResource DynamicBrush}" CornerRadius="20" Padding="10">
+            <StackPanel Margin="20">
+
+                <!-- Mesaj de Bun Venit -->
+                <TextBlock Text="Bine ai venit la Fieldify!" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Rezervă-ți terenul preferat rapid și simplu." 
+                       FontSize="16" 
+                       Margin="0,0,0,20"
+                       HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Ore disponibile:" 
+                               FontSize="16" 
+                               FontWeight="SemiBold" 
+                               Foreground="Gray" 
+                               Margin="0,0,0,5" />
+             
+            </StackPanel>
+
+
+        </Border>
+    </Grid>
+</UserControl>

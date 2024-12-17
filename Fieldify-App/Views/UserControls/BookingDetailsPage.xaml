@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="Fieldify_App.Views.UserControls.BookingDetailsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:vm="clr-namespace:Fieldify_App.ViewModels" xmlns:views="clr-namespace:Fieldify_App.Views.UserControls" xmlns:i="http://schemas.microsoft.com/xaml/behaviors" d:DataContext="{d:DesignInstance Type=vm:BookingDetailsPageVM}"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+
+
+    <Border Background="{DynamicResource DynamicBrush}" CornerRadius="20" Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Titlul -->
+            <TextBlock Text="{Binding SelectedField.Nume}" 
+                           FontSize="24" FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           Grid.Row="0" Margin="0,10,0,10" Foreground="Green"/>
+
+            <!-- DatePicker -->
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
+                <TextBlock Text="Selectați data:" 
+                               FontSize="16" 
+                               FontWeight="SemiBold" 
+                               Foreground="Gray" 
+                               Margin="0,0,0,5" 
+                               HorizontalAlignment="Center" />
+
+                <DatePicker x:Name="MyDatePicker" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" 
+                    Width="150" Height="30"
+                    DisplayDateStart="{Binding MinDate}"/>
+
+
+            </StackPanel>
+
+            <!-- Ore disponibile -->
+            <StackPanel Grid.Row="2" Margin="20">
+                <TextBlock Text="Ore disponibile:" 
+                               FontSize="16" 
+                               FontWeight="SemiBold" 
+                               Foreground="Gray" 
+                               Margin="0,0,0,5" />
+
+                <ListBox ItemsSource="{Binding AvailableHours, FallbackValue='Fără date', TargetNullValue='Fără date'}" 
+                     HorizontalAlignment="Center" 
+                     Width="200" 
+                     Height="200"
+                     SelectedItem="{Binding SelectedHour, Mode=TwoWay}" />       
+            </StackPanel>
+
+            <!-- Butonul Înapoi -->
+            <Button Content="Înapoi" 
+                        Width="100" Height="40" 
+                        HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                        Margin="10"
+                        Command="{Binding BackCommand}"
+                        Grid.Row="3"/>
+
+            <Button Content="Programează-te" 
+                        Width="150" Height="40" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                        Margin="10"
+                        Command="{Binding ScheduleCommand}" 
+                        Visibility="{Binding ScheduleButtonVisibility}" 
+                        Grid.Row="3"/>  
+            
+        </Grid>
+
+    </Border>
+
+</UserControl>

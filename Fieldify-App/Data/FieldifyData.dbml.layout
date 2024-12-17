@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="FieldifyData">
+  <DataContextMoniker Name="/FieldifyDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ab5e49e4-d989-4afc-b1c8-a9c20fce54c6" absoluteBounds="0.625, 0.5, 2, 2.8917362467447916">
+      <DataClassMoniker Name="/FieldifyDataDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c547ad4d-4f3f-4d9e-b2aa-f49cf313e347" absoluteBounds="0.64000000000000012, 0.96, 1.9700000000000002, 2.3317362467447915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1b08995f-e08b-4a88-b47e-36bf973f8a0e" absoluteBounds="3.375, 0.5, 2, 1.2424849446614583">
+      <DataClassMoniker Name="/FieldifyDataDataContext/UserType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37129f52-f9ce-4d9b-9b2e-19607dbf3a5e" absoluteBounds="3.3899999999999997, 0.96, 1.9700000000000002, 0.68248494466145826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 1.12124247233073); (2.625 : 1.12124247233073)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FieldifyDataDataContext/UserType/UserType_User" />
+      <nodes>
+        <classShapeMoniker Id="1b08995f-e08b-4a88-b47e-36bf973f8a0e" />
+        <classShapeMoniker Id="ab5e49e4-d989-4afc-b1c8-a9c20fce54c6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e4b2909c-46f8-4312-ac2a-8f507a927d7a" absoluteBounds="6.875, 1.375, 2, 1.2424849446614583">
+      <DataClassMoniker Name="/FieldifyDataDataContext/TipuriTeren" />
+      <nestedChildShapes>
+        <elementListCompartment Id="34033c3c-c6bf-4c5e-ad9f-db32ac0b185a" absoluteBounds="6.89, 1.835, 1.9700000000000002, 0.68248494466145826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c400a87-dd76-4f92-a939-8f565d1bc8f4" absoluteBounds="6.875, 3, 2, 1.8609541829427081">
+      <DataClassMoniker Name="/FieldifyDataDataContext/Teren" />
+      <nestedChildShapes>
+        <elementListCompartment Id="624286d6-4b91-4dec-9d61-f175a6a46be2" absoluteBounds="6.89, 3.46, 1.9700000000000002, 1.3009541829427083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.875 : 2.61748494466146); (7.875 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/FieldifyDataDataContext/TipuriTeren/TipuriTeren_Teren" />
+      <nodes>
+        <classShapeMoniker Id="e4b2909c-46f8-4312-ac2a-8f507a927d7a" />
+        <classShapeMoniker Id="9c400a87-dd76-4f92-a939-8f565d1bc8f4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d658ff3d-dda4-453b-8eb5-76ad551231c5" absoluteBounds="3.5, 2.5, 2, 2.2732670084635416">
+      <DataClassMoniker Name="/FieldifyDataDataContext/Programare" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e27b64d5-1200-427e-8df5-f54e78c4dc0c" absoluteBounds="3.5149999999999997, 2.96, 1.9700000000000002, 1.7132670084635415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 3.88663350423177); (5.5 : 3.88663350423177)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FieldifyDataDataContext/Teren/Teren_Programare" />
+      <nodes>
+        <classShapeMoniker Id="9c400a87-dd76-4f92-a939-8f565d1bc8f4" />
+        <classShapeMoniker Id="d658ff3d-dda4-453b-8eb5-76ad551231c5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 2.9458681233724); (3.5 : 2.9458681233724)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FieldifyDataDataContext/User/User_Programare" />
+      <nodes>
+        <classShapeMoniker Id="ab5e49e4-d989-4afc-b1c8-a9c20fce54c6" />
+        <classShapeMoniker Id="d658ff3d-dda4-453b-8eb5-76ad551231c5" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,101 @@
+﻿<Window x:Class="Fieldify_App.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Fieldify_App.Views.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1140"
+         xmlns:vm="clr-namespace:Fieldify_App.ViewModels"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    
+    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" UniformCornerRadius="15"
+                         Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4" MouseDown="Card_MouseDown">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <materialDesign:ColorZone Grid.Column="0" Height="620" CornerRadius="15 15 15 15" Margin="15">
+                <materialDesign:ColorZone.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#65db90" Offset="0.0"/>
+                        <GradientStop Color="#345e04" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </materialDesign:ColorZone.Background>
+                <StackPanel Margin="15">
+                    <WrapPanel Margin="0 0 0 30">
+                        <Image Source="/Resources/fieldify_logo_white.png" Height="60" Width="60"
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <TextBlock Text="Fieldify" FontSize="25" FontWeight="Bold" HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" Margin="10 0 0 0" Style="{StaticResource menuTitle}"/>
+                    </WrapPanel>
+
+                    <StackPanel x:Name="ButtonContainer" Orientation="Vertical">
+                        <local:MenuButton x:Name="home_btn" ButtonText="Home" IconKind="HomeOutline" Click="home_btn_Click" />
+                        <local:MenuButton ButtonText="My account" IconKind="AccountCircleOutline" Click="MenuButton_Click"/>
+                        <local:MenuButton ButtonText="Book now" IconKind="SoccerField" Click="MenuButton_Click_1" />
+                        <local:MenuButton ButtonText="My bookings" IconKind="CalendarTextOutline" Click="MenuButton_Click_2"/>
+                        <local:MenuButton ButtonText="Exit" IconKind="ExitToApp" Margin="0 230 0 0" Click="MenuButton_Click_3"/>
+                        
+                    </StackPanel>
+                    
+
+                </StackPanel>
+            </materialDesign:ColorZone>
+
+            <!--<StackPanel Orientation="Vertical" Grid.Column="1">-->
+            <Grid Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <materialDesign:ColorZone Grid.Row="0" Height="80" CornerRadius="10 10 10 10" Margin="10 15 15 10" Background="{DynamicResource DynamicBrush}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <materialDesign:ColorZone Width="60" Height="60" CornerRadius="10" Margin="10 0 20 0" VerticalAlignment="Center">
+                                <materialDesign:ColorZone.Background>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Color="#65db90" Offset="0.0"/>
+                                        <GradientStop Color="#345e04" Offset="1.3"/>
+                                    </LinearGradientBrush>
+                                </materialDesign:ColorZone.Background>
+
+                                <Image Width="50" Height="50" Source="/Resources/profile_picture.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                            </materialDesign:ColorZone>
+                        </StackPanel>
+
+                    </Grid>
+                </materialDesign:ColorZone>
+
+                <ContentControl x:Name="MainContent" Grid.Row="1" Margin="10 10 15 15"/>
+
+                <!--<ContentControl Content="{Binding CurrentPage}" Grid.Row="1" Margin="10 10 15 15"/>-->
+
+            </Grid>
+
+
+
+            <!--</StackPanel>-->
+
+        </Grid>
+
+
+    </materialDesign:Card>
+
+
+</Window>
